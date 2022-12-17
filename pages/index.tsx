@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       
 
-      Welcome to rajon
+      Welcome to Md. Rajon
 
 
     </>
