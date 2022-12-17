@@ -62,8 +62,8 @@ console.log(showdata);
 
 
     <div className="users">
-        {showdata.map((user) => (
-          <div className="user" key={user.id}>{user.name}</div>
+        {showdata.map((user, index) => (
+          <div className="user" key={index}>{user[1]}</div>
         ))}
     </div>
 

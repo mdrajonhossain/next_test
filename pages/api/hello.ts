@@ -1,5 +1,8 @@
 
-export default function handler(req,res){
+
+
+export default function handler(req:any, res:any) {
+
 	 
 	 if(req.method === 'POST'){
 
@@ -19,6 +22,7 @@ export default function handler(req,res){
 	  res.status(200).json({ details:data })	
 	}
 
-  res.status(200).json({ details:"its not post method" })	
 
+
+  res.status(200).json({ details: "its not post method" })
 }
