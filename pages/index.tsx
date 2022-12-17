@@ -1,11 +1,47 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import axios from 'axios';
 import styles from '../styles/Home.module.css'
+import React, { useState, useEffect } from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
+  const [showdata, setShowdata] = useState([]);
+
+
+const shwodetail = ()=>{
+
+const dataa = {
+  email: "me@me.com",
+  username: "measdfasdf"
+};
+
+  const headers = {
+  'Content-Type': 'application/json'  
+}
+
+axios.post("http://localhost:3000/api/hello", dataa, {
+    headers: headers
+  })
+  .then((response) => {
+    console.log(response.data)
+    setShowdata(response.data.details)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+
+
+
+}
+
+
+
+console.log(showdata);
+
+
+
+
   return (
     <>
       <Head>
@@ -16,7 +52,21 @@ export default function Home() {
       </Head>
       
 
+
+
+
+<button onClick={()=>shwodetail()}>Click</button>
+
+
       Welcome to Md. Rajon
+
+
+    <div className="users">
+        {showdata.map((user) => (
+          <div className="user" key={user.id}>{user.name}</div>
+        ))}
+    </div>
+
 
 
     </>
